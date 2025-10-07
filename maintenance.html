@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maintenance Details</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Maintenance Details</h1>
+      <div class="header-actions">
+        <a href="index.html"><button>← Back to Fleet</button></a>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="panel">
+        <div class="panel-header">
+          <h2 id="title">Engine</h2>
+          <div class="panel-actions">
+            <button id="ack-btn">Acknowledge</button>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <div class="card-header"><h3>Current Metrics</h3></div>
+            <div id="metrics"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Recommended Actions</h3></div>
+            <ol id="actions" class="tutorial-steps"></ol>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <div class="card-header"><h3>Notes</h3></div>
+          <textarea id="notes" style="width:100%;min-height:120px;background:#0f1520;border:1px solid #1f2b38;color:#e6eef6;border-radius:8px;padding:10px;"></textarea>
+          <div class="tutorial-actions"><button id="save-notes">Save Notes</button></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="maintenance.js"></script>
+  </body>
+  </html>
+
+

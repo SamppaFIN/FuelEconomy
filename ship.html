@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ship Details</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1 id="ship-title">Ship</h1>
+      <div class="header-actions">
+        <a href="fleet.html"><button>← Back to Fleet</button></a>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Overview</h2>
+        </div>
+        <div class="grid two">
+          <div class="card" id="ship-card"></div>
+          <div class="card">
+            <div class="card-header"><h3>Maintenance Summary</h3></div>
+            <div id="summary"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:12px;">
+        <div class="panel-header">
+          <h2>Engines</h2>
+        </div>
+        <div id="engine-list"></div>
+      </section>
+    </main>
+
+    <script src="ship.js"></script>
+  </body>
+  </html>
+
+

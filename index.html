@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fuel Economy Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Fuel Economy — Fleet Maintenance Demo</h1>
+      <div class="header-actions">
+        <a href="fleet.html"><button>Fleet Status</button></a>
+        <button id="add-ship-btn">+ Ship</button>
+        <button id="reset-demo-btn" class="danger">Reset Demo</button>
+      </div>
+    </header>
+
+    <div class="app">
+      <aside class="sidebar">
+        <h2>Fleet</h2>
+        <ul id="ship-list" class="ship-list"></ul>
+      </aside>
+
+      <main class="main">
+        <section id="fleet-overview" class="panel">
+          <div class="panel-header">
+            <h2>Fleet Overview</h2>
+            <div class="panel-actions">
+              <span id="fleet-name" class="muted">All Vessels</span>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="kpi-label">Ships</div>
+              <div class="kpi-value" id="kpi-ships">0</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Engines</div>
+              <div class="kpi-value" id="kpi-engines">0</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Fuel Flow (kg/h)</div>
+              <div class="kpi-value" id="kpi-fuel">0</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Avg Hours</div>
+              <div class="kpi-value" id="kpi-hours">0</div>
+            </div>
+          </div>
+          <div class="kpi-bars">
+            <div class="kpi-bar">
+              <div class="kpi-bar-label">Due Service (≥500h since)</div>
+              <div class="bar"><span id="bar-service" style="width:0%"></span></div>
+              <div class="kpi-bar-meta"><span id="meta-service">0 / 0</span></div>
+            </div>
+            <div class="kpi-bar">
+              <div class="kpi-bar-label">High Vibration (>3.0 RMS)</div>
+              <div class="bar warn"><span id="bar-vib" style="width:0%"></span></div>
+              <div class="kpi-bar-meta"><span id="meta-vib">0 / 0</span></div>
+            </div>
+            <div class="kpi-bar">
+              <div class="kpi-bar-label">Elevated Exhaust ΔT (>100°C)</div>
+              <div class="bar warn"><span id="bar-dt" style="width:0%"></span></div>
+              <div class="kpi-bar-meta"><span id="meta-dt">0 / 0</span></div>
+            </div>
+          </div>
+        </section>
+        <section id="ship-section" class="panel hidden">
+          <div class="panel-header">
+            <h2 id="ship-name">Ship</h2>
+            <div class="panel-actions">
+              <button id="rename-ship-btn">Rename</button>
+              <button id="delete-ship-btn" class="danger">Delete</button>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <div class="card">
+              <div class="card-header">
+                <h3>Engines</h3>
+                <button id="add-engine-btn">+ Engine</button>
+              </div>
+              <table class="table" id="engines-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Hours</th>
+                    <th>Last Service (h)</th>
+                    <th>Fuel Flow (kg/h)</th>
+                    <th>Vibration (RMS)</th>
+                    <th>ΔT Exhaust (°C)</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="engines-body"></tbody>
+              </table>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Maintenance Recommendations</h3>
+                <button id="simulate-btn">Simulate Metrics</button>
+              </div>
+              <div id="recommendations" class="recommendations"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="empty-state" class="empty">
+          <p>No ships yet. Use "+ Ship" to create one, or load sample data.</p>
+          <button id="load-sample-btn">Load Sample Fleet</button>
+        </section>
+      </main>
+    </div>
+
+    <template id="engine-row-template">
+      <tr>
+        <td><input class="eng-name" type="text"></td>
+        <td>
+          <select class="eng-type">
+            <option value="main">Main</option>
+            <option value="aux">Aux</option>
+            <option value="generator">Generator</option>
+          </select>
+        </td>
+        <td><input class="eng-hours" type="number" min="0"></td>
+        <td><input class="eng-last-service" type="number" min="0"></td>
+        <td><input class="eng-fuelflow" type="number" step="0.1" min="0"></td>
+        <td><input class="eng-vibration" type="number" step="0.01" min="0"></td>
+        <td><input class="eng-exhaust-dt" type="number" step="0.1"></td>
+        <td><button class="delete-engine danger">Delete</button></td>
+      </tr>
+    </template>
+
+    <script src="sample-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
