@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Fuel Economy Program
 
 This project provides a unified view of ship engines, predictive maintenance, and fuel optimization.
@@ -22,3 +23,6 @@ What you can do:
 - Simulate metrics changes to see updated recommendations
 - Data persists via localStorage (Reset clears demo data)
 
+=======
+# FuelEconomy
+>>>>>>> d35c326391acd660c3747f7910fb90f3c4b62517
